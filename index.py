@@ -1,6 +1,10 @@
 import sys
 menu = '''
 TALLER #1 - INICIANDO CON PYTHON
+Integrantes
+> Sindy Paola Devoz Perez
+> Freddy Manuel Barrios Del rio
+
 Ejecutar programa
 
 a. que pregunte al usuario: Su nombre y luego lo salude
@@ -178,7 +182,7 @@ def process(program):
 while running:
     try:
         selectedProgram = main()
-        if selectedProgram is not 'k' and continueProgram():
+        if selectedProgram != 'k' and continueProgram():
             continue
         else:
             break
