@@ -96,7 +96,7 @@ def printCalls():
         totalScond=0
         while cont<=numbersCalls:
             sconds=0
-            print('Ingrese los daos de la llamada {}'.format(cont))
+            print('Ingrese los datos de la llamada {}'.format(cont))
             hoursCalls = input('Hora: ')
             minutesCalls = input('Minutos: ')
             secondCalls = input('Segundos: ')
