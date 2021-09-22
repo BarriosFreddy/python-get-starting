@@ -147,6 +147,26 @@ def operations():
         print('El numero de items no es un valor numerico')
 
 
+def listPrefix():
+    numItems = input('Ingrese el numero de cadenas de la lista')
+    list = []
+    listWithPrefix = []
+    if numItems.isnumeric():
+        numItems = int(numItems)
+        for i in range(0, numItems):
+            string = input("Ingrese la cadena de texto #{}".format(i+1))
+            list.append(string)
+
+        prefix = input('Ingrese la cadena de texto que va como prefijo')
+        for string in list:
+            listWithPrefix.append("{}{}".format(prefix, string))
+        print(list)
+        print(listWithPrefix) 
+    else:
+        print('El numero de items no es un valor numerico')
+
+
+
 def process(program):
     if program == 'a':
         calculateCharacters()
@@ -161,7 +181,7 @@ def process(program):
     if program == 'f':
         operations()
     if program == 'g':
-        pass
+        listPrefix()
     if program == 'h':
         pass
     if program == 'i':
