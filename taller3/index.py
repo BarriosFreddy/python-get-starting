@@ -24,7 +24,7 @@ j. que dado dos listas de N y M elementos, permita reemplazar el ultimo elemento
 k. Salir
 '''
 options = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k']
-numberPI = 3.1416
+
 running = True
 
 def main():
@@ -67,14 +67,14 @@ def multiFuncitons():
     print("Cadena de texto impresa de manera inversa: {}".format(stringInverse))
 
 def findDuplicatedOnes():
-    numItems = input('Ingrese el numero de items a ingresar')
+    numItems = input('Ingrese el numero de items a añadir')
     list = []
     uniquesList = []
     duplicatedList = []
     if numItems.isnumeric():
         numItems = int(numItems)
         for i in range(0, numItems):
-            item = input("Ingrese el numero de la posicion {}".format(i))
+            item = input("Ingrese el numero de la posicion {}".format(i+1))
             list.append(item)
     
         for item in list:
@@ -89,6 +89,64 @@ def findDuplicatedOnes():
     else:
         print('El numero de items no es un valor numerico')
 
+def findSubstring():
+    numItems = input('Ingrese el numero de cadena de textos a añadir')
+    list = []
+    counter = 0
+    if numItems.isnumeric():
+        numItems = int(numItems)
+        for i in range(0, numItems):
+            item = input("Ingrese la cadena de texto # {}".format(i+1))
+            list.append(item)
+        stringToFind = input('Ingrese la cadena de texto a buscar')
+        for stringItem in list:
+            try:
+                stringItem.index(stringToFind)
+                counter += 1
+            except:
+                pass
+        print("La cadena de texto -{}- se encuenta {} veces en la lista ingresada".format(stringToFind, counter))
+    else:
+        print('El numero de items no es un valor numerico')
+
+def operations():
+    numItems = input('Ingrese el numero de items de la lista')
+    list = []
+    counter = 0
+    addition = 0
+    multiplication = 1
+    isValidList = True
+    if numItems.isnumeric():
+        numItems = int(numItems)
+        for i in range(0, numItems):
+            number = input("Ingrese el valor numerico")
+            list.append(number)
+
+        for number in list:
+            if number.isnumeric() is not True:
+                isValidList = False
+
+        if isValidList is False:
+            print('Al menos un valor ingresado no es numerico')
+        else:
+            tempList = []
+            for number in list:
+                number = int(number)
+                addition += number
+                multiplication *= number
+                tempList.append(number)
+            
+            numberMin = min(tempList)
+            numberMax = max(tempList)
+            print("La suma de los numeros es {}".format(addition))
+            print("La multiplicacion de los numeros es {}".format(multiplication))
+            print("El numero minimo es {}".format(numberMin))
+            print("El numero maximo es {}".format(numberMax))
+
+    else:
+        print('El numero de items no es un valor numerico')
+
+
 def process(program):
     if program == 'a':
         calculateCharacters()
@@ -99,8 +157,18 @@ def process(program):
     if program == 'd':
         findDuplicatedOnes()
     if program == 'e':
+        findSubstring()
+    if program == 'f':
+        operations()
+    if program == 'g':
         pass
-    elif program == 'f':
+    if program == 'h':
+        pass
+    if program == 'i':
+        pass
+    if program == 'j':
+        pass
+    elif program == 'k':
         print('Good bye! ')
         global running
         running = False
