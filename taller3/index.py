@@ -13,7 +13,7 @@ c. que implemente las siguientes funciones en Python:
     c.  Imprima la cadena cada dos caracteres
     d.  Imprima la cadena en sentido inverso
 d. que dada una lista de datos numéricos con duplicados ingresados por el usuario, permita generar dos listas nuevas: una con los elementos duplicados y otra con los elementos únicos.
-e. que dado un numero ingresado por el usuario, se solicite N entradas correspondientes a cadenas de texto. Posteriormente solicite una cadena, la busque en la lista, e indique cuantas veces aparece en la misma.
+e. que dado un número ingresado por el usuario, se solicite N entradas correspondientes a cadenas de texto. Posteriormente solicite una cadena, la busque en la lista, e indique cuantas veces aparece en la misma.
 f. que dada una lista de números ingresados por el usuario, permita realizar las funciones de suma, producto, mayor y menor valor.
 g. que permita generar una lista de N cadenas, posteriormente solicite un carácter, que se deberá insertar antes de cada una de las cadenas de la lista original. El resultado debe imprimir ambas listas.
 h. que permita mediante funciones, generar la listas de los N números de Fibonacci, los N números primos.
@@ -42,21 +42,20 @@ def continueProgram():
         
 
 def calculateCharacters():
-    texto = input("Ingrese la cadena de texto")
-    char = input("Ingrese el caracter a buscar")
+    texto = input("Ingrese la cadena de texto: ")
+    char = input("Ingrese el caracter a buscar: ")
     count = texto.count(char)
     print("El caracter -{}- aparece en el texto -{}-, {} veces".format(char, texto, count))
     
 def countVowels():
-    texto = input("Ingrese la cadena de texto")
+    texto = input("Ingrese la cadena de texto: ")
     vowels = ('a', 'e', 'i', 'o', 'u')
     for vowel in vowels:
         count = texto.count(vowel)
         print("La vocal -{}- aparece en el texto {} veces".format(vowel, count))
 
 def multiFuncitons():
-    texto = input("Ingrese la cadena de texto")
-    vowels = ('a', 'e', 'i', 'o', 'u')
+    texto = input("Ingrese la cadena de texto: ")
     firstTwoChars = texto[:2]
     firstThreeChars = texto[:3]
     eachTwoChars = texto[::2]
@@ -67,14 +66,14 @@ def multiFuncitons():
     print("Cadena de texto impresa de manera inversa: {}".format(stringInverse))
 
 def findDuplicatedOnes():
-    numItems = input('Ingrese el numero de items a añadir')
+    numItems = input('Ingrese el número de items a añadir: ')
     list = []
     uniquesList = []
     duplicatedList = []
     if numItems.isnumeric():
         numItems = int(numItems)
         for i in range(0, numItems):
-            item = input("Ingrese el numero de la posicion {}".format(i+1))
+            item = input("Ingrese el número de la posicion {}: ".format(i+1))
             list.append(item)
     
         for item in list:
@@ -87,18 +86,18 @@ def findDuplicatedOnes():
         print("Items duplicados {}".format(duplicatedList))
         
     else:
-        print('El numero de items no es un valor numerico')
+        print('El número de items no es un valor numerico')
 
 def findSubstring():
-    numItems = input('Ingrese el numero de cadena de textos a añadir')
+    numItems = input('Ingrese el número de cadena de textos a añadir')
     list = []
     counter = 0
     if numItems.isnumeric():
         numItems = int(numItems)
         for i in range(0, numItems):
-            item = input("Ingrese la cadena de texto # {}".format(i+1))
+            item = input("Ingrese la cadena de texto # {}: ".format(i+1))
             list.append(item)
-        stringToFind = input('Ingrese la cadena de texto a buscar')
+        stringToFind = input('Ingrese la cadena de texto a buscar: ')
         for stringItem in list:
             try:
                 stringItem.index(stringToFind)
@@ -107,10 +106,10 @@ def findSubstring():
                 pass
         print("La cadena de texto -{}- se encuenta {} veces en la lista ingresada".format(stringToFind, counter))
     else:
-        print('El numero de items no es un valor numerico')
+        print('El número de items no es un valor numerico')
 
 def operations():
-    numItems = input('Ingrese el numero de items de la lista')
+    numItems = input('Ingrese el número de items de la lista: ')
     list = []
     counter = 0
     addition = 0
@@ -119,7 +118,7 @@ def operations():
     if numItems.isnumeric():
         numItems = int(numItems)
         for i in range(0, numItems):
-            number = input("Ingrese el valor numerico")
+            number = input("Ingrese el valor numerico: ")
             list.append(number)
 
         for number in list:
@@ -138,17 +137,17 @@ def operations():
             
             numberMin = min(tempList)
             numberMax = max(tempList)
-            print("La suma de los numeros es {}".format(addition))
-            print("La multiplicacion de los numeros es {}".format(multiplication))
-            print("El numero minimo es {}".format(numberMin))
-            print("El numero maximo es {}".format(numberMax))
+            print("La suma de los números es {}".format(addition))
+            print("La multiplicacion de los números es {}".format(multiplication))
+            print("El número minimo es {}".format(numberMin))
+            print("El número maximo es {}".format(numberMax))
 
     else:
-        print('El numero de items no es un valor numerico')
+        print('El número de items no es un valor numerico')
 
 
 def listPrefix():
-    numItems = input('Ingrese el numero de cadenas de la lista')
+    numItems = input('Ingrese el número de cadenas de la lista: ')
     list = []
     listWithPrefix = []
     if numItems.isnumeric():
@@ -157,15 +156,113 @@ def listPrefix():
             string = input("Ingrese la cadena de texto #{}".format(i+1))
             list.append(string)
 
-        prefix = input('Ingrese la cadena de texto que va como prefijo')
+        prefix = input('Ingrese la cadena de texto que va como prefijo: ')
         for string in list:
             listWithPrefix.append("{}{}".format(prefix, string))
         print(list)
         print(listWithPrefix) 
     else:
-        print('El numero de items no es un valor numerico')
+        print('El número de items no es un valor numerico')
 
+def calFibonacciPrimeNumbers():
+    digitsNumber = input('Ingrese el número de digitos a generar: ')
+    if digitsNumber.isnumeric() is False:
+        print("El valor ingresado no es númerico")
+        return
+    digitsNumber = int(digitsNumber)
+    fibonacciNumbers = generateFibonacci(digitsNumber)
+    primeNumbers = generatePrimeNumbers(digitsNumber)
+    print("Primeros {} números fibonacci generados {}".format(digitsNumber, fibonacciNumbers))
+    print("Primeros {} números primos generados {}".format(digitsNumber, primeNumbers))
 
+def generateFibonacci(limit):
+    numbersList = [0, 1]
+    firstNumber = numbersList[0]
+    secondNumber = numbersList[1]
+    index = 0
+    while(index < limit):
+        sum = firstNumber + secondNumber
+        numbersList.append(sum)
+        firstNumber = secondNumber
+        secondNumber = sum
+        index += 1
+    return numbersList
+
+def generatePrimeNumbers(limit):
+    numbersList = [1]
+    index = 0
+    current = 2
+    isDivisible = False
+    while(index < limit):
+        for i in range(2, int(current/2)+1):
+            if (current % i) == 0:
+                isDivisible = True
+                break
+        print(isDivisible, current)
+        if isDivisible is False:
+            numbersList.append(current)
+            index += 1
+        else: 
+            isDivisible = False
+        current += 1
+    return numbersList
+
+def alterList():
+    numItems = input('Ingrese el número de items de la lista: ')
+    list = []
+    isValidList = True
+    if numItems.isnumeric():
+        numItems = int(numItems)
+        for i in range(0, numItems):
+            number = input("Ingrese el valor numerico: ")
+            list.append(number)
+
+        for number in list:
+            if number.isnumeric() is not True:
+                isValidList = False
+
+        if isValidList is False:
+            print('Al menos un valor ingresado no es numerico')
+        else:
+            resultList = []
+            for number in list:
+                resultList.append(int(number) + 1)
+            print(list)
+            print(resultList)
+    else:
+        print('El número de items no es un valor numerico')
+
+def replaceElementByList():
+    numItemsList1 = input('Ingrese el número de items de la primera lista: ')
+    numItemsList2 = input('Ingrese el número de items de la primera lista: ')
+    list1 = []
+    list2 = []
+    isValidList = True
+    if numItemsList1.isnumeric() and numItemsList2.isnumeric():
+        numItemsList1 = int(numItemsList1)
+        numItemsList2 = int(numItemsList2)
+        for i in range(0, numItemsList1):
+            number = input("Ingrese valor numerico para la primera lista: ")
+            list1.append(number)
+        for i in range(0, numItemsList2):
+            number = input("Ingrese valor numerico para la segunda lista: ")
+            list2.append(number)
+
+        for number in list1:
+            if number.isnumeric() is not True:
+                isValidList = False
+        for number in list2:
+            if number.isnumeric() is not True:
+                isValidList = False
+
+        if isValidList is False:
+            print('Al menos un valor ingresado no es numerico')
+        else:
+            list1.pop()
+            resultList = list1 + list2
+            print(resultList)
+    else:
+        print('El número de items no es un valor numerico')
 
 def process(program):
     if program == 'a':
@@ -183,11 +280,11 @@ def process(program):
     if program == 'g':
         listPrefix()
     if program == 'h':
-        pass
+        calFibonacciPrimeNumbers()
     if program == 'i':
-        pass
+        alterList()
     if program == 'j':
-        pass
+        replaceElementByList()
     elif program == 'k':
         print('Good bye! ')
         global running
